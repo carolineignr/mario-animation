@@ -1,0 +1,115 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.cloud {
+  position: absolute;
+}
+
+.cloud:nth-child(2) {
+  transform: scaleY(0.6);
+  top: 30px;
+  animation: wind 8s infinite linear;
+}
+
+.cloud:nth-child(1) {
+  transform: scaleY(0.5);
+  opacity: 0.5;
+  top: 50px;
+  animation: wind 8.5s infinite linear;
+}
+
+.cloud:nth-child(3) {
+  transform: scaleY(0.7);
+  opacity: 0.7;
+  animation: wind 12s infinite linear;
+}
+
+@keyframes wind {
+  from{ transform: translateX(-300px) }
+  to{ transform: translateX(2000px) }
+}
+
+.sky {
+  height: 40%;
+  width: 100%;
+  margin: 0 auto;
+  background: #87ceeb;
+  display: flex;
+  justify-content: space-between;
+}
+
+.grass {
+  height: 30%;
+  width: 100%;
+  margin: 0 auto;
+  background: #90ee90;
+}
+
+.road {
+  height: 30%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border-top: 20px solid #808080;
+  border-bottom: 20px solid #808080;
+  background: #a9a9a9;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+.tunnel {
+  position: absolute;
+  transform: scale(0.5);
+  top: -255px;
+  left: 70%;
+}
+
+.mario {
+  position: absolute;
+  top: -40px;
+  left: -100px;
+  transform: scale(0.5);
+  animation: driving 5s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.luigi {
+  position: absolute;
+  left: -100px;
+  top: 48%;
+  transform: scale(0.5);
+  animation: driving-luigi 15s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes driving {
+  from { transform: scale(0.5) translateX(-200px) }
+  to { transform: scale(0.5) translateX(200vw) }
+}
+
+@keyframes driving-luigi {
+  0% { transform: scale(0.5); left: -200px }
+  25% { transform: scale(0.5); left: 100% }
+  50% { transform: scale(0.5) rotateY(180deg); left: 100% }
+  100% { transform: scale(0.5) rotateY(180deg); left: -200px  }
+}
